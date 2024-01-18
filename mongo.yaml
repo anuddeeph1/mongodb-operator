@@ -1,13 +1,13 @@
 apiVersion: mongodbcommunity.mongodb.com/v1 
 kind: MongoDBCommunity 
 metadata: 
-  name: mongo-replicaset 
+  name: mongodb
   namespace: nirmata
 spec: 
   members: 3 
   type: ReplicaSet 
   version: "v2-5.0.15" 
-  FeatureCompatibilityVersion: "5.0"
+  featureCompatibilityVersion: "5.0"
   replicaSetHorizons: 
   - horizon: mongodb-0.mongodb-hs.nirmata.svc.cluster.local:27017 
   - horizon: mongodb-1.mongodb-hs.nirmata.svc.cluster.local:27017 

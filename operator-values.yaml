@@ -85,7 +85,7 @@ community-operator-crds:
 # Deploys MongoDB with `resource` attributes.
 createResource: false
 resource:
-  name: mongodb-replica-set
+  name: mongodb
   version: 4.4.0
   members: 3
   tls:

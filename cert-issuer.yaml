@@ -1,0 +1,25 @@
+apiVersion: cert-manager.io/v1 
+kind: Issuer 
+metadata: 
+  name: ca-issuer-mongo 
+  namespace: nirmata 
+spec: 
+  ca: 
+    secretName: ca-key-pair 
+--- 
+apiVersion: cert-manager.io/v1 
+kind: Certificate 
+metadata: 
+  name: cert-manager-certificate 
+  namespace: nirmata 
+spec: 
+  secretName: mongodb-tls 
+  issuerRef: 
+    name: ca-issuer-mongo 
+    kind: Issuer 
+  commonName: "*.mongodb-hs.nirmata.svc.cluster.local" 
+  dnsNames: 
+  - "*.mongodb-hs.nirmata.svc.cluster.local" 
+  - mongodb-0.mongodb-hs.nirmata.svc.cluster.local 
+  - mongodb-1.mongodb-hs.nirmata.svc.cluster.local 
+  - mongodb-2.mongodb-hs.nirmata.svc.cluster.local

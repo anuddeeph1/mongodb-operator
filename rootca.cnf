@@ -1,0 +1,57 @@
+# For the CA policy 
+[ policy_match ] 
+countryName = US 
+stateOrProvinceName = CA
+LocalityName=SanJose
+organizationName =  Nirmata.Inc
+organizationalUnitName = DevOps 
+commonName = *.mongodb-hs.nirmata.svc.cluster.local
+emailAddress = anudeep.nalla@nirmata.com
+
+[ req ] 
+default_bits = 4096 
+default_keyfile = rootca.pem    ## The default private key file name. 
+default_md = sha256                           ## Use SHA-256 for Signatures 
+distinguished_name = req_dn 
+req_extensions = v3_req 
+x509_extensions = v3_ca # The extentions to add to the self-signed cert 
+
+[ v3_req ] 
+subjectKeyIdentifier  = hash 
+basicConstraints = CA:FALSE 
+keyUsage = critical, digitalSignature, keyEncipherment 
+nsComment = "OpenSSL Generated Certificate for TESTING only.  NOT FOR PRODUCTION        USE." 
+extendedKeyUsage  = serverAuth, clientAuth 
+
+[ req_dn ] 
+countryName = US 
+countryName_default = IN 
+
+countryName_min = 2 
+countryName_max = 2 
+
+stateOrProvinceName = CA
+stateOrProvinceName_default = Pune 
+stateOrProvinceName_max = 64 
+
+localityName = SanJose
+localityName_default = Pune 
+localityName_max = 64 
+
+organizationName = Nirmata.Inc 
+organizationName_default = TestComp 
+organizationName_max = 64 
+
+organizationalUnitName = DevOps 
+organizationalUnitName_default = TestComp 
+organizationalUnitName_max = 64 
+
+commonName = *.mongodb-hs.nirmata.svc.cluster.local 
+commonName_max = 64 
+
+[ v3_ca ] 
+# Extensions for a typical CA 
+
+subjectKeyIdentifier=hash 
+basicConstraints = critical,CA:true 
+authorityKeyIdentifier=keyid:always,issuer:always

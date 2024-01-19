@@ -54,7 +54,7 @@ database:
   # make sure to set "watchNamespace" to "*"
   # to ensure that the operator has the
   # permission to reconcile resources in other namespaces
-  # namespace: mongodb-database
+  namespace: nirmata
 
 agent:
   name: mongodb-agent

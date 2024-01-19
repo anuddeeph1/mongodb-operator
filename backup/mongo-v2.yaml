@@ -69,14 +69,8 @@ spec:
                   memory: 200M
             - name: mongodb-agent
               readinessProbe:
-                exec:
-                  command:
-                    - ls
-                enabled: false
-                failureThreshold: 50
-                initialDelaySeconds: 300
-                periodSeconds: 300
-                timeoutSeconds: 300
+                failureThreshold: 40
+                initialDelaySeconds: 5
       volumeClaimTemplates: 
         - metadata: 
             name: data-volume 
